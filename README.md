@@ -27,7 +27,7 @@ npm install
 3. Start the Development Server:
 npm start
 
-Open your browser and navigate to http://localhost:3000.
+Open your browser and navigate to http://localhost:5173
 
 Deployment
 The application is hosted on Vercel. You can access it via the following link:
