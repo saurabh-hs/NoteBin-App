@@ -1,6 +1,16 @@
 NoteBin
 NoteBin is a web application designed to help users save, manage, and share code snippets or notes efficiently. With a clean user interface and powerful features like search, edit, and share, NoteBin is the perfect tool for developers and professionals.
 
+![NoteBin-Create-Page](https://github.com/user-attachments/assets/a20fbb55-b9d4-4faf-9fe2-e7d983e7c85d)
+
+![NoteBin-All-Notes-Page](https://github.com/user-attachments/assets/d8faf1c1-b0e6-4fca-b25a-2edb0171d6d8)
+
+![NoteBin-Edit-Page](https://github.com/user-attachments/assets/5cc39dc1-2f03-42d9-b793-e2c2b0fa0e79)
+
+![NoteBin-View-Page](https://github.com/user-attachments/assets/8f722c7f-64e5-4f62-a07f-1965a84239f5)
+
+![NoteBin-Share-Link-pop-up](https://github.com/user-attachments/assets/eb0cf0ba-78fa-41ab-b6f9-8ce109de0503)
+
 Features
 Create & Save Notes: Easily save text-based notes or code snippets with a title.
 Search Functionality: Quickly find notes by title.
