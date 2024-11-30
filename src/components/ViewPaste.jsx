@@ -1,45 +1,47 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useNavigate } from 'react-router-dom'; // Import useNavigate
-import { updateToPastes } from '../redux/pasteSlice';
-import { FaEdit, FaSave, FaArrowLeft } from 'react-icons/fa';
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams, useNavigate } from "react-router-dom";
+import { updateToPastes } from "../redux/pasteSlice";
+import { FaEdit, FaSave, FaArrowLeft } from "react-icons/fa";
 
 const ViewPaste = () => {
   const { id } = useParams();
   const allPastes = useSelector((state) => state.paste.pastes);
-  const paste = allPastes.find((p) => p._id === id); // Find paste by ID
-  
-  const [isEditing, setIsEditing] = useState(false); // State for toggling edit mode
-  const [title, setTitle] = useState(paste?.title || '');
-  const [content, setContent] = useState(paste?.content || '');
+  const paste = allPastes.find((p) => p._id === id);
+
+  const [isEditing, setIsEditing] = useState(false);
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
 
   const dispatch = useDispatch();
-  const navigate = useNavigate(); // Initialize navigate hook
-
-  // Handle updating paste
-  const handleUpdate = () => {
-    if (title && content) {
-      dispatch(updateToPastes({ _id: id, title, content }));
-      setIsEditing(false); // Exit edit mode after update
-    } else {
-      alert('Please fill in both the title and content.');
-    }
-  };
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (paste) {
       setTitle(paste.title);
       setContent(paste.content);
+    } else {
+      // Redirect to a fallback page or display a "not found" message
+      alert("Paste not found");
+      navigate("/pastes");
     }
-  }, [paste]);
+  }, [paste, navigate]);
+
+  const handleUpdate = () => {
+    if (title && content) {
+      dispatch(updateToPastes({ _id: id, title, content }));
+      setIsEditing(false);
+    } else {
+      alert("Please fill in both the title and content.");
+    }
+  };
 
   return (
     <div className="max-w-4xl mx-auto p-6 mt-16">
       <div className="flex flex-col gap-5">
-        {/* Back Button */}
         <div className="flex items-center gap-3 mb-5">
           <button
-            onClick={() => navigate('/pastes')} // Navigate to /pastes
+            onClick={() => navigate("/pastes")}
             className="flex items-center gap-2 text-blue-600 hover:underline"
           >
             <FaArrowLeft />
@@ -47,7 +49,6 @@ const ViewPaste = () => {
           </button>
         </div>
 
-        {/* Title Section */}
         <div className="flex justify-between items-center">
           <input
             type="text"
@@ -65,7 +66,6 @@ const ViewPaste = () => {
           </button>
         </div>
 
-        {/* Content Section */}
         <div className="mt-6">
           <textarea
             className="w-[900px] h-[500px] p-4 text-lg rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -77,7 +77,6 @@ const ViewPaste = () => {
           />
         </div>
 
-        {/* Save Button for Editable Mode */}
         {isEditing && (
           <div className="mt-6 flex justify-end">
             <button
