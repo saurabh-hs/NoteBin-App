@@ -66,8 +66,9 @@ Contributing
 Contributions are welcome! Please fork the repository and submit a pull request for any feature additions or bug fixes.
 
 Contact
-For questions or feedback, please reach out to:
 
+
+For questions or feedback, please reach out to:
 Author: Saurabh H. S.
 GitHub: https://github.com/saurabh-hs
 Live App: https://note-bin-app.vercel.app/
